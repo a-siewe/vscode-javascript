@@ -1,6 +1,6 @@
 {
-  "name": "vscode.kjavascript.langserver.client",
-  "description": "kjavascript support for VScode",
+  "name": "vscode-javascript",
+  "description": "Javascript and Typescript support for VScode",
   "author": "Armel Siewe",
   "license": "MIT",
   "version": "1.0.0",
@@ -15,6 +15,7 @@
     "vscode": "^1.33.0"
   },
   "activationEvents": [
+    "onCommand:iviews.Synchronize",
     "onLanguage:javascript"
   ],
   "contributes": {
@@ -22,24 +23,16 @@
       {
         "id": "javascript",
         "extensions": [
-          ".js",
-          ".kjs"
+          ".js"
+        ]
+      },
+      {
+        "id": "typescript",
+        "extensions": [
+          ".ts"
         ]
       }
-    ],
-    "configuration": {
-      "javascript.trace.server": {
-        "type": "string",
-        "enum": [
-          "off",
-          "messages",
-          "verbose"
-        ],
-        "default": "verbose",
-        "description": "Traces the communication between VS Code and the KJavascript language server.",
-        "scope": "window"
-      }
-    }
+    ]
   },
   "main": "./out/extension",
   "scripts": {
@@ -51,6 +44,8 @@
     "test": "sh ./scripts/e2e.sh"
   },
   "dependencies": {
+    "javascript-typescript-langserver": "^2.9.0",
+    "typescript-tslint-plugin": "^0.5.4",
     "vscode-languageclient": "^5.2.1"
   },
   "devDependencies": {

@@ -4,6 +4,7 @@
  * ------------------------------------------------------------------------------------------ */
 
 import * as path from "path";
+import * as vscode from "vscode";
 import { workspace, ExtensionContext } from "vscode";
 
 import {
@@ -15,8 +16,6 @@ import {
 let client: LanguageClient;
 
 export function activate(context: ExtensionContext) {
-  let debugOptions = { execArgv: ["--nolazy", "--inspect=6009"] };
-
   // The server is implemented in node
   let relativePath = path.join(
     "node_modules",
